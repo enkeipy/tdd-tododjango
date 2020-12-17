@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+from dotenv import load_dotenv
 import os
+
+load_dotenv(verbose=True)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -125,11 +128,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Email configuration
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'enkeipy.com@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+EMAIL_PORT = os.getenv("EMAIL_PORT")
+EMAIL_USE_TLS = os.getenv("EMAIL_USE_TLS")
 
 
 # Internationalization
